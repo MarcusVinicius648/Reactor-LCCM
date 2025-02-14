@@ -4,19 +4,28 @@ import { createStaticNavigation, NavigationIndependentTree } from "@react-naviga
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Welcome from "./pages/welcome";
-import Login from "./pages/login";
 import CreateAccount from "./pages/createAccount";
+import Home from './pages/home';
+import History from './pages/history';
+import ReviewTest from './reviewTest';
+import PreProcess from './pages/preProcess';
+import Test from './pages/test';
 
 
 const RootStack = createNativeStackNavigator({
-  initialRouteName: 'Welcome',
+  initialRouteName: 'WelcomeScreen',
   screenOptions: {headerShown: false},
   screens:{
-    Welcome: Welcome,
-    Login: Login,
-    CreateAccount: CreateAccount,
+    WelcomeScreen: Welcome,
+    CreateAccountScreen: CreateAccount,
+    HomeScreen:Home,
+    HistoryScreen:History,
+    ReviewTestScreen:ReviewTest,
+    PreProcessScreen:PreProcess,
+    TestScreen:Test,
   },
 });
+
 const Navigation = createStaticNavigation(RootStack);
 
 

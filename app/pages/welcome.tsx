@@ -1,19 +1,24 @@
 import * as React from 'react';
 import { SafeAreaView,Text, View, StyleSheet, StatusBar, TextInput, TouchableOpacity } from "react-native";
-
+import { useNavigation } from '@react-navigation/native';
 
 import colors from "@/assets/styles/colors";
 import fonts from "@/assets/styles/fonts";
 import { Button } from '@/components/button';
 
+
 export default function Welcome() {
+
+  const navigation = useNavigation();
+
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={colors.top_green}/>
 
       <View style={styles.topgrade}>
 
-        <Text style={styles.title}>Bem vindo</Text>
+        <Text style={styles.title}>Bem vindo!</Text>
 
         <View style={styles.inputsBox}>
           <Text style={styles.label}>E-mail:</Text>
@@ -26,12 +31,18 @@ export default function Welcome() {
         <View style={styles.button}>
           <TouchableOpacity 
             activeOpacity={0.7}
+            onPress={()=>navigation.navigate("HomeScreen")}
           >
             <Button title='Login'/>
           </TouchableOpacity>
         </View>
 
-        <Text style={styles.bottomlabel}>Criar nova Conta</Text>
+        <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={() => navigation.navigate('CreateAccountScreen')}
+        >
+          <Text style={styles.bottomlabel}>Criar nova Conta</Text>
+        </TouchableOpacity>
         <Text style={styles.forgotPass}>Esqueceu a senha?</Text>
 
 
@@ -47,6 +58,12 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
     backgroundColor: colors.top_green,
+    
+    shadowColor: '#000',
+    shadowOffset: { width: 5, height: 10 },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation:10
   },
   topgrade:{
     justifyContent: "space-around",
@@ -87,7 +104,7 @@ const styles = StyleSheet.create({
    marginBottom: 20,
   },
   bottomlabel:{
-    fontSize:14,
+    fontSize:17,
     fontWeight:'bold',
     alignContent: 'center',
     textAlign: 'center',
