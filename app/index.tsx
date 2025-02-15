@@ -7,9 +7,10 @@ import Welcome from "./pages/welcome";
 import CreateAccount from "./pages/createAccount";
 import Home from './pages/home';
 import History from './pages/history';
-import ReviewTest from './reviewTest';
+import ReviewTest from './pages/reviewTest';
 import PreProcess from './pages/preProcess';
 import Test from './pages/test';
+import SingleHistory from './pages/singlehistory';
 
 
 const RootStack = createNativeStackNavigator({
@@ -23,6 +24,7 @@ const RootStack = createNativeStackNavigator({
     ReviewTestScreen:ReviewTest,
     PreProcessScreen:PreProcess,
     TestScreen:Test,
+    SingleHistoryScreen:SingleHistory,
   },
 });
 

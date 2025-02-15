@@ -58,6 +58,8 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
     backgroundColor: colors.top_green,
+    borderBottomEndRadius:25,
+    borderBottomStartRadius:25,
     
     shadowColor: '#000',
     shadowOffset: { width: 5, height: 10 },
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.white,
     marginBottom:0,
-
+  
     height: 480,
     width:662
   },
