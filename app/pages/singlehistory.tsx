@@ -35,7 +35,7 @@ export default function SingleHistory(){
                 </View>
 
                 <View  style={styles.downloadbox}>
-                    <Text  style={styles.downloadboxtext}>Salvar em .json</Text>]
+                    <Text  style={styles.downloadboxtext}>Salvar em .json</Text>
                     <Entypo name={'download'} style={styles.icon2}/>
                 </View>
             </View>

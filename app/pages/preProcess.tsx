@@ -1,13 +1,21 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import { SafeAreaView,Text,StyleSheet,View,TextInput, TouchableOpacity } from "react-native";
 
 import colors from "@/assets/styles/colors";
 import { Button } from "@/components/button";
 import { Entypo } from "@expo/vector-icons";
+import { connect,brokerUrl } from "@/server/connection_mqtt";
 
 import { useNavigation } from "@react-navigation/native";
 
 export default function PreProcess(){
+
+    const [status, setStatus] = useState(false);
+    const [ip, setip] = useState(brokerUrl);
+
+    useEffect(()=>{
+        setStatus(connect());
+    },[])
 
     const navigation = useNavigation();
 
@@ -31,9 +39,10 @@ export default function PreProcess(){
             </View>
 
             <View style={styles.boxBroker}>
-                <Text style={styles.labelbroker}>Verificando conexão com o Broker: mosquitto.test.br</Text>
-                <Entypo name="icloud" style={styles.icon}/>
-                <Text style={styles.labelbroker}>Conectado!</Text>
+                <Text style={styles.labelbroker}>Verificando conexão com o Broker: {ip} </Text>
+                {status==true ? <Entypo name="icloud" style={styles.icontrue}/> : <Entypo name="icloud" style={styles.iconfalse}/>}
+                {status==true ? <Text style={styles.labelbroker}>Conectado!</Text> :  <Text style={styles.labelbroker}>Não Conectado!</Text>}
+                
             </View>
 
             <TouchableOpacity activeOpacity={0.7} style={styles.button} onPress={()=>navigation.navigate('TestScreen')}>
@@ -129,9 +138,14 @@ const styles = StyleSheet.create({
     button:{
         marginTop:30
     },
-    icon:{
+    icontrue:{
         fontSize:64,
         textAlign:'center',
         color:colors.button_green
+    },
+    iconfalse:{
+        fontSize:64,
+        textAlign:'center',
+        color:colors.red_alert
     }
 })
