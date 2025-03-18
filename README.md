@@ -1,50 +1,79 @@
-# Welcome to your Expo app 👋
+# 🔬 Reactor Control - IoT System
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Monitoramento e controle de um reator para síntese de materiais
 
-## Get started
+📌 Sobre o Projeto
 
-1. Install dependencies
+Este projeto tem como objetivo desenvolver um sistema de controle remoto para um reator de síntese de materiais no Laboratório de Crescimento e Caracterização de Materiais Cristalinos.
 
-   ```bash
-   npm install
-   ```
 
-2. Start the app
+A aplicação permite o monitoramento e controle do reator via protocolo MQTT, possibilitando ajustes em tempo real dos parâmetros da rota de combustão.
 
-   ```bash
-    npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
+⚙️ Principais Funcionalidades
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+1️⃣ Autenticação de Usuário 🔑
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+- Sistema de login e controle de acesso.
 
-When you're ready, run:
+2️⃣ Controle do Reator ⚙️
 
-```bash
-npm run reset-project
-```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- Ligar e desligar o reator remotamente.
 
-## Learn more
+- Ajuste da temperatura de síntese conforme necessário.
 
-To learn more about developing your project with Expo, look at the following resources:
+3️⃣ Monitoramento em Tempo Real 📊
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+- Exibição gráfica da temperatura e parâmetros do reator.
 
-Join our community of developers creating universal apps.
+- Atualização dinâmica dos dados via MQTT.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+4️⃣ Histórico de Síntese 📜
+
+
+- Acompanhamento dos experimentos realizados.
+
+- Visualização de gráficos e informações úteis.
+
+- Opção para download dos dados em TXT e JSON.
+
+🏗 Tecnologias Utilizadas
+
+🔹 Frontend: React Native
+
+🔹 Protocolo de Comunicação: MQTT
+
+🔹 Gerenciamento de Estados: Context API
+
+🔹 Banco de Dados Local: AsyncStorage
+
+🔹 Back-end & IoT: Node.js + Broker MQTT
+
+
+
+🚀 Como Executar o Projeto
+
+🔧 Configuração do Ambiente
+
+1️⃣ Instalar dependências:
+
+
+`npm install`
+
+2️⃣ Iniciar o servidor MQTT:
+
+`cd server`
+
+`npm run dev`
+
+3️⃣ Rodar a aplicação no Expo:
+
+`expo start`
+
+📱 Escaneie o QR Code que será exibido no navegador para abrir o app no celular.
+
+
+
