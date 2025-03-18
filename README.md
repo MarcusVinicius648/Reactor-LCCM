@@ -2,7 +2,7 @@
 
 Monitoramento e controle de um reator para síntese de materiais
 
-📌 Sobre o Projeto
+### 📌 Sobre o Projeto
 
 Este projeto tem como objetivo desenvolver um sistema de controle remoto para um reator de síntese de materiais no Laboratório de Crescimento e Caracterização de Materiais Cristalinos.
 
@@ -10,7 +10,7 @@ Este projeto tem como objetivo desenvolver um sistema de controle remoto para um
 A aplicação permite o monitoramento e controle do reator via protocolo MQTT, possibilitando ajustes em tempo real dos parâmetros da rota de combustão.
 
 
-⚙️ Principais Funcionalidades
+### ⚙️ Principais Funcionalidades
 
 1️⃣ Autenticação de Usuário 🔑
 
@@ -40,7 +40,7 @@ A aplicação permite o monitoramento e controle do reator via protocolo MQTT, p
 
 - Opção para download dos dados em TXT e JSON.
 
-🏗 Tecnologias Utilizadas
+### 🏗 Tecnologias Utilizadas
 
 🔹 Frontend: React Native
 
@@ -54,7 +54,7 @@ A aplicação permite o monitoramento e controle do reator via protocolo MQTT, p
 
 
 
-🚀 Como Executar o Projeto
+### 🚀 Como Executar o Projeto
 
 🔧 Configuração do Ambiente
 
