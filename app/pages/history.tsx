@@ -1,62 +1,78 @@
 import React from "react";
-import { SafeAreaView,Text,StyleSheet,View, TouchableOpacity,Image } from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
-import {HistoryCard} from "@/components/historyCard"
 import colors from "@/assets/styles/colors";
+import { HistoryCard } from "@/components/historyCard";
 import { useNavigation } from "@react-navigation/native";
 
-export default function History(){
+export default function History() {
+  const navigation = useNavigation();
 
-    const navigation =useNavigation()
-
-    return(
-        <SafeAreaView style={styles.container}>
-
-        <View style={styles.header}>
-            
+  return (
+    <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor={colors.top_green} />
+      <ScrollView contentContainerStyle={styles.scrollView}>
+        <View style={styles.cardContainer}>
+          <View style={styles.header}>
             <View>
-            <Text style={styles.title}>Histórico</Text>
+              <Text style={styles.title}>Histórico</Text>
             </View>
-            
+          </View>
+
+          <View style={styles.card}>
+            <HistoryCard />
+            <HistoryCard />
+            <HistoryCard />
+            <HistoryCard />
+          </View>
         </View>
-            
-        <HistoryCard/>
-        <HistoryCard/>
-        <HistoryCard/>
-        <HistoryCard/>
-        </SafeAreaView>
-    );
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
-    container:{
-        alignItems:"center",
-        justifyContent:"center",
-    },
-     header:{
-
-       justifyContent: "center",
-        alignItems: "center",
-        width:'100%',
-        flexDirection:'row',
-    
-        height:100,
-        backgroundColor: colors.top_green,
-    
-        shadowColor: '#000',
-        shadowOffset: { width: 5, height: 5 },
-        shadowOpacity: 0.3,
-        shadowRadius: 6,
-        elevation:20,
-        borderBottomEndRadius:25,
-        borderBottomStartRadius:25,
-      },
-      title:{
-        fontWeight:'bold',
-        fontSize:34,
-        textAlign:'center',   
-        
-        alignSelf:'center',
-        justifyContent:'center'
-      },
-})
+  container: {
+    flex: 1,
+    backgroundColor: colors.top_green,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  scrollView: {
+    flexGrow: 1,
+    padding: 16,
+  },
+  cardContainer: {
+    width: "100%",
+    maxWidth: 400,
+    alignSelf: "center",
+  },
+  header: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: 100,
+    backgroundColor: colors.button_green,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 34,
+  },
+  card: {
+    backgroundColor: "white",
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
+    paddingHorizontal: 32,
+    paddingTop: 32,
+    paddingBottom: 24,
+  },
+});

@@ -5,60 +5,54 @@ import colors from "@/assets/styles/colors";
 import { Entypo } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-export  function HistoryCard(){
+export function HistoryCard() {
+  const navigation = useNavigation();
 
-    const navigation =useNavigation();
-
-    return(
-        <TouchableOpacity 
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity
         activeOpacity={0.7}
-         style={styles.tou} 
-         //onPress={()=>navigation.navigate('SingleHistoryScreen')}
-         >
-        <View style={styles.container}>
-
-            <View style={styles.textBox}>
-            <Text style={styles.title}>Título: Sulfato de Cálcio</Text>
-            <Text style={styles.datas}>Data: 03/08/2025</Text>
-            <Text style={styles.datas}>Duração: 45min09s</Text>
-            </View>
-
-            <Entypo name={'chevron-with-circle-right'} style={styles.icon}/>
-
+        //onPress={()=>navigation.navigate('SingleHistoryScreen')}
+      >
+        <View style={styles.textBox}>
+          <Text style={styles.title}>Título: Sulfato de Cálcio</Text>
+          <Text style={styles.datas}>Data: 03/08/2025</Text>
+          <Text style={styles.datas}>Duração: 45min09s</Text>
         </View>
-        </TouchableOpacity>
-    );
+
+        <Entypo name={"chevron-with-circle-right"} style={styles.icon} />
+      </TouchableOpacity>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    container:{
-        alignItems:"center",
-        justifyContent:"space-around",
-        flexDirection:'row',
-        backgroundColor:colors.card_green,
-        width:'80%',
-        height:121,
-        borderRadius:25,
-        marginTop:30
-    },
-    tou:{
-        width:"100%",
-        alignItems:'center'
-    },
-    textBox:{
-        alignItems:'flex-start',
-        justifyContent:'center',
-    },
-    title:{
-        fontSize:15,
-        fontWeight:'bold'
-    },
-    datas:{
-        fontSize:15,
-        fontWeight:'medium'
-    },
-    icon:{
-        fontSize:26,
-        color:'black'
-    }
-})
+  container: {
+    alignItems: "center",
+    justifyContent: "space-around",
+    flexDirection: "row",
+    backgroundColor: colors.card_green,
+    width: "100%",
+    borderRadius: 15,
+    padding: 16,
+    marginTop: 30,
+  },
+  textBox: {
+    alignItems: "flex-start",
+    justifyContent: "center",
+  },
+  title: {
+    fontSize: 15,
+    fontWeight: "bold",
+  },
+  datas: {
+    fontSize: 15,
+    fontWeight: "medium",
+  },
+  icon: {
+    fontSize: 26,
+    color: "black",
+    alignSelf: "center",
+    marginTop: 15,
+  },
+});
