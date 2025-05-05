@@ -12,7 +12,7 @@ export function HistoryCard() {
     <View style={styles.container}>
       <TouchableOpacity
         activeOpacity={0.7}
-        //onPress={()=>navigation.navigate('SingleHistoryScreen')}
+        onPress={() => navigation.navigate("SingleHistoryScreen")}
       >
         <View style={styles.textBox}>
           <Text style={styles.title}>Título: Sulfato de Cálcio</Text>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: colors.card_green,
     width: "100%",
-    borderRadius: 15,
+    borderRadius: 8,
     padding: 16,
     marginTop: 30,
   },

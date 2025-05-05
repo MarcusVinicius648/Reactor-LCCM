@@ -1,10 +1,13 @@
 import React from "react";
 import {
+  Image,
+  KeyboardAvoidingView,
+  Platform,
   SafeAreaView,
   ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 
@@ -17,23 +20,41 @@ export default function History() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor={colors.top_green} />
-      <ScrollView contentContainerStyle={styles.scrollView}>
-        <View style={styles.cardContainer}>
-          <View style={styles.header}>
-            <View>
-              <Text style={styles.title}>Histórico</Text>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.keyboardAvoidingView}
+      >
+        <ScrollView contentContainerStyle={styles.scrollView}>
+          <View style={styles.cardContainer}>
+            <View style={styles.header}>
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => navigation.goBack()}
+              >
+                <Image
+                  source={require("@/assets/icons/backarrow.png")}
+                  style={{
+                    resizeMode: "contain",
+                    width: 10,
+                    height: 20,
+                    marginLeft: 20,
+                  }}
+                />
+              </TouchableOpacity>
+              <View>
+                <Text style={styles.title}>Histórico</Text>
+              </View>
+            </View>
+
+            <View style={styles.card}>
+              <HistoryCard />
+              <HistoryCard />
+              <HistoryCard />
+              <HistoryCard />
             </View>
           </View>
-
-          <View style={styles.card}>
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-            <HistoryCard />
-          </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -44,6 +65,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.top_green,
     justifyContent: "center",
     alignItems: "center",
+  },
+  keyboardAvoidingView: {
+    flex: 1,
   },
   scrollView: {
     flexGrow: 1,
@@ -62,10 +86,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.button_green,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
+    flexDirection: "row",
   },
   title: {
     fontWeight: "bold",
     fontSize: 34,
+    textAlign: "center",
   },
   card: {
     backgroundColor: "white",

@@ -56,32 +56,12 @@ export default function LoginScreen() {
                 </View>
 
                 <View style={styles.inputContainer}>
-                  <Text style={styles.label}>Senha:</Text>
-                  <TextInput
-                    style={styles.input}
-                    value={password}
-                    onChangeText={setPassword}
-                    secureTextEntry
-                  />
+                  <Text style={styles.label}>Nome de Usuário:</Text>
+                  <TextInput style={styles.input} onChangeText={setPassword} />
                 </View>
 
                 <TouchableOpacity style={styles.button} onPress={handleLogin}>
                   <Text style={styles.buttonText}>Login</Text>
-                </TouchableOpacity>
-              </View>
-
-              <View style={styles.linksContainer}>
-                <TouchableOpacity
-                  activeOpacity={0.7}
-                  onPress={() => navigation.navigate("CreateAccountScreen")}
-                >
-                  <Text style={styles.createAccountText}>Criar nova conta</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity>
-                  <Text style={styles.forgotPasswordText}>
-                    Esqueceu a senha?
-                  </Text>
                 </TouchableOpacity>
               </View>
             </View>
