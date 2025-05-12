@@ -8,6 +8,8 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 
 import { Entypo } from "@expo/vector-icons";
@@ -21,74 +23,80 @@ export default function Test() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollView}>
-        <View style={styles.cardContainer}>
-          <View style={styles.header}>
-            <Text style={styles.title}>Teste</Text>
-          </View>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={styles.keyboardAvoidingView}
+      >
+        <ScrollView contentContainerStyle={styles.scrollView}>
+          <View style={styles.cardContainer}>
+            <View style={styles.header}>
+              <Text style={styles.title}>Teste</Text>
+            </View>
 
-          <View style={styles.card}>
-            <View style={styles.inputsBox}>
-              <Text style={styles.label}>
-                Escolha a temperatura alvo que será passada ao sistema:
-              </Text>
-              <View style={styles.inputsBox1}>
-                <TextInput
-                  style={styles.inputs}
-                  placeholder="Temperatura setPoint"
-                  value={tempMessage}
-                  onChangeText={setTempMessage}
-                />
+            <View style={styles.card}>
+              <View style={styles.inputsBox}>
+                <Text style={styles.label}>
+                  Escolha a temperatura alvo que será passada ao sistema:
+                </Text>
+                <View style={styles.inputsBox1}>
+                  <TextInput
+                    style={styles.inputs}
+                    placeholder="Temperatura setPoint"
+                    value={tempMessage}
+                    onChangeText={setTempMessage}
+                  />
+                  <TouchableOpacity
+                    activeOpacity={0.7}
+                    onPress={handleSendMessage}
+                  >
+                    <Entypo
+                      name="arrow-with-circle-right"
+                      style={{ fontSize: 40 }}
+                    />
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <View style={styles.tempboxout}>
+                <View style={styles.tempbox}>
+                  <Text style={styles.templabel}>Temperatura da Malha:</Text>
+                  <View style={styles.tempboxinner}>
+                    <Text style={styles.temptext}>0 ºC</Text>
+                  </View>
+                </View>
+
+                <View style={styles.tempbox}>
+                  <Text style={styles.templabel}>Temperatura do Composto:</Text>
+                  <View style={styles.tempboxinner}>
+                    <Text style={styles.temptext}>0 ºC</Text>
+                  </View>
+                </View>
+              </View>
+
+              {!execution ? (
                 <TouchableOpacity
                   activeOpacity={0.7}
-                  onPress={handleSendMessage}
+                  style={styles.buttonbox}
+                  onPress={() => setExecution(true)}
                 >
-                  <Entypo
-                    name="arrow-with-circle-right"
-                    style={{ fontSize: 40 }}
-                  />
+                  <View style={styles.buttongreen}>
+                    <Entypo name="controller-play" style={styles.icon} />
+                  </View>
                 </TouchableOpacity>
-              </View>
+              ) : (
+                <TouchableOpacity
+                  activeOpacity={0.7}
+                  style={styles.buttonbox}
+                  onPress={() => setExecution(false)}
+                >
+                  <View style={styles.buttonred}>
+                    <Entypo name="controller-paus" style={styles.icon} />
+                  </View>
+                </TouchableOpacity>
+              )}
             </View>
-
-            <View style={styles.tempbox}>
-              <Text style={styles.templabel}>Temperatura da Malha:</Text>
-              <View style={styles.tempboxinner}>
-                <Text style={styles.temptext}>0 ºC</Text>
-              </View>
-            </View>
-
-            <View style={styles.tempbox}>
-              <Text style={styles.templabel}>Temperatura do Composto:</Text>
-              <View style={styles.tempboxinner}>
-                <Text style={styles.temptext}>0 ºC</Text>
-              </View>
-            </View>
-
-            {!execution ? (
-              <TouchableOpacity
-                activeOpacity={0.7}
-                style={styles.buttonbox}
-                onPress={() => setExecution(true)}
-              >
-                <View style={styles.buttongreen}>
-                  <Entypo name="controller-play" style={styles.icon} />
-                </View>
-              </TouchableOpacity>
-            ) : (
-              <TouchableOpacity
-                activeOpacity={0.7}
-                style={styles.buttonbox}
-                onPress={() => setExecution(false)}
-              >
-                <View style={styles.buttonred}>
-                  <Entypo name="controller-paus" style={styles.icon} />
-                </View>
-              </TouchableOpacity>
-            )}
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -129,8 +137,8 @@ const styles = StyleSheet.create({
     height: 100,
     backgroundColor: colors.button_green,
 
-    borderTopEndRadius: 25,
-    borderTopStartRadius: 25,
+    borderTopEndRadius: 8,
+    borderTopStartRadius: 8,
   },
   title: {
     fontWeight: "bold",
@@ -141,10 +149,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignSelf: "center",
     marginTop: 20,
+    width: "100%",
   },
   inputsBox1: {
     flexDirection: "row",
-    width: "90%",
+    width: "100%",
     justifyContent: "space-evenly",
     alignItems: "center",
     marginBottom: 25,
@@ -161,15 +170,18 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   inputs: {
-    width: 240,
+    width: "80%",
     borderWidth: 1,
     borderColor: "#e2e8f0", // slate-200 equivalent
     borderRadius: 4,
     padding: 10,
     fontSize: 16,
   },
+  tempboxout: {
+    width: "100%",
+  },
   tempbox: {
-    width: "90%",
+    width: "100%",
     marginBottom: 20,
   },
   templabel: {
@@ -178,7 +190,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   tempboxinner: {
-    width: 196,
+    width: "80%",
     height: 56,
     borderColor: "#e2e8f0",
     borderRadius: 25,
@@ -199,7 +211,7 @@ const styles = StyleSheet.create({
   buttongreen: {
     height: 55,
     backgroundColor: colors.button_green,
-    width: 357,
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
@@ -213,7 +225,7 @@ const styles = StyleSheet.create({
   buttonred: {
     height: 55,
     backgroundColor: colors.red_alert,
-    width: 357,
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,

@@ -24,27 +24,27 @@ export default function SingleHistory() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.keyboardAvoidingView}
       >
-      <ScrollView contentContainerStyle={styles.scrollView}>
-        <View style={styles.cardContainer}>
-          <View style={styles.headerOut}>
-            <TouchableOpacity
-              activeOpacity={0.7}
-              onPress={() => navigation.goBack()}
-            >
-              <Image
-                source={require("@/assets/icons/backarrow.png")}
-                style={{
-                  resizeMode: "contain",
-                  width: 10,
-                  height: 20,
-                  marginLeft: 20,
-                }}
-              />
-            </TouchableOpacity>
+        <ScrollView contentContainerStyle={styles.scrollView}>
+          <View style={styles.cardContainer}>
+            <View style={styles.headerOut}>
+              <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={() => navigation.goBack()}
+              >
+                <Image
+                  source={require("@/assets/icons/backarrow.png")}
+                  style={{
+                    resizeMode: "contain",
+                    width: 10,
+                    height: 20,
+                    marginLeft: 20,
+                  }}
+                />
+              </TouchableOpacity>
 
-            <Text style={styles.titleOut}>Título: Sulfato de Cálcio</Text>
-          </View>
-          
+              <Text style={styles.titleOut}>Título: Sulfato de Cálcio</Text>
+            </View>
+
             <View style={styles.card}>
               <View style={styles.container}>
                 <View style={styles.textBox}>
@@ -70,7 +70,7 @@ export default function SingleHistory() {
                 </View>
               </View>
             </View>
-        </View>
+          </View>
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
   download: {
     width: "100%",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "center",
     flexDirection: "row",
     marginTop: 30,
   },

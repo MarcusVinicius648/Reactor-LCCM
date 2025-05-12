@@ -45,8 +45,6 @@ export default function Home() {
                   quinta feira, 15 de janeiro de 2025
                 </Text>
               </View>
-
-              <Image source={require("@/assets/icons/logoHome.png")} />
             </LinearGradient>
             <View style={styles.card}>
               <TouchableOpacity
@@ -181,5 +179,6 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 60,
     alignSelf: "center",
+    width: "100%",
   },
 });

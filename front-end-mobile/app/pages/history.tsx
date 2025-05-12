@@ -30,6 +30,11 @@ export default function History() {
               <TouchableOpacity
                 activeOpacity={0.7}
                 onPress={() => navigation.goBack()}
+                style={{
+                  alignItems: "flex-start",
+                  width: "100%",
+                  paddingLeft: 30,
+                }}
               >
                 <Image
                   source={require("@/assets/icons/backarrow.png")}
@@ -37,7 +42,6 @@ export default function History() {
                     resizeMode: "contain",
                     width: 10,
                     height: 20,
-                    marginLeft: 20,
                   }}
                 />
               </TouchableOpacity>
@@ -86,7 +90,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.button_green,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
-    flexDirection: "row",
   },
   title: {
     fontWeight: "bold",

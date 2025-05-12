@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     alignSelf: "center",
+    width: "100%",
   },
   inputslabel: {
     flexDirection: "row",

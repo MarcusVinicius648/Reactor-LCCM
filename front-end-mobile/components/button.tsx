@@ -20,11 +20,11 @@ export function Button({ title, ...rest }: ButtonProps) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.button_green,
-    width: 357,
+    width: "100%",
     height: 55,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 10,
+    borderRadius: 8,
 
     shadowColor: "#000",
     shadowOffset: { width: 5, height: 10 },
